@@ -4,7 +4,9 @@ Signal Desk helps industrial automation teams turn public company evidence into 
 
 The implemented use case is **CNC machining and machine loading in Germany, Austria and Switzerland**. Its rules cover manufacturer operations, equipment investment, production staffing and specific automation projects. Applying the workflow to other industries requires adapting the source checks, signal definitions and scoring rules.
 
-[Explore the demo](https://signal-desk.rifecalf.chatgpt.site/) · [Source code](https://github.com/vinaynaik432-debug/signal-desk)
+[Open the live demo on GitHub Pages](https://vinaynaik432-debug.github.io/signal-desk/) · [Download the offline demo](https://github.com/vinaynaik432-debug/signal-desk/archive/refs/heads/gh-pages.zip)
+
+The offline download contains a single self-contained page. Unzip it and open `index.html` in a browser.
 
 ## Explore the recorded research
 
@@ -66,6 +68,8 @@ npm run preview
 ```
 
 Open `http://127.0.0.1:8788/`. The build writes a self-contained `dist/index.html` with embedded application assets and the public research sample. It can also be opened directly as a file. Source links open external websites. Set `PORT` to change the preview port.
+
+The public GitHub Pages site serves the built `index.html` from the root of the `gh-pages` branch. To update the published sample, run the tests and build on `main`, then publish the resulting `dist/index.html` as `index.html` on `gh-pages`.
 
 The build works from checked-in source data and does not need provider credentials. Its browser content uses a restrictive policy that disables API connections.
 
