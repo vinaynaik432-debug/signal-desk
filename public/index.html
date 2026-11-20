@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16283c">
+  <meta name="description" content="Independent industrial automation research. Explore source-backed research on CNC manufacturers in Germany, Austria and Switzerland.">
+  <title>Signal Desk · Industrial automation research</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to workspace</a>
+  <header class="appbar">
+    <div class="appbar-inner">
+      <a class="brand" href="#accounts" aria-label="Signal Desk · Accounts">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-product">Signal Desk</span>
+      </a>
+      <nav class="nav" aria-label="Workspace">
+        <a href="#accounts" data-nav="accounts">Accounts</a>
+        <a href="#segments" data-nav="segments">Segments</a>
+        <a href="#signals" data-nav="signals">Buying signals</a>
+        <a href="#runs" data-nav="runs">Run history</a>
+      </nav>
+      <div id="language-control" class="language-control" role="group" aria-label="Language"><button data-lang="en" lang="en">EN</button><button data-lang="de" lang="de">DE</button></div>
+      <span class="mode" id="workspace-mode">Research workspace</span>
+    </div>
+  </header>
+  <main id="main">
+    <noscript>This workspace requires JavaScript. Für diese Ansicht wird JavaScript benötigt.</noscript>
+    <div id="workspace" aria-busy="true"><div class="loading-screen">Loading account research…</div></div>
+  </main>
+  <footer class="site-footer"><p id="project-credit">Independent portfolio project · Vinay Naik</p><a id="source-code" href="https://github.com/vinaynaik432-debug/signal-desk" target="_blank" rel="noopener noreferrer">Source code on GitHub</a></footer>
+  <dialog id="account-dialog" class="drawer" aria-labelledby="account-title"></dialog>
+  <dialog id="discovery-dialog" class="discovery" aria-labelledby="discovery-title"></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
