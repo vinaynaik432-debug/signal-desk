@@ -44,7 +44,7 @@ export function publicStages(stages) {
   if(typeof stages==='string') {try{stages=JSON.parse(stages);}catch{return [];}}
   return (Array.isArray(stages)?stages:[]).map(stage=>({
     ...safeFields(stage,['stage','status']),
-    ...Object.fromEntries(['requestedResults','organicResults','originalUrlsSelected','excludedDuringSelection','urlCount','returnedPages','missingPages']
+    ...Object.fromEntries(['requestedResults','rawResultRows','organicResults','originalUrlsSelected','excludedDuringSelection','urlCount','returnedPages','missingPages']
       .filter(key=>Number.isInteger(stage[key]) && stage[key]>=0).map(key=>[key,stage[key]]))
   }));
 }

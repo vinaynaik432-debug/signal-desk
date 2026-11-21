@@ -601,8 +601,12 @@ async function researchDiscovery(key,searchQuery,pageLimit,focus,observedDay) {
   report.warnings=search.warning?[search.warning]:[]
   report.partial=search.partial
   report.providerStatus=search.status
-  const hits=search.rows.filter(row=>typeof row?.url==='string')
-  const stage={stage:'German web search',actor:SEARCH_ACTOR,status:search.status,ceilingUsd:0.01,reportedUsd:search.reportedUsd,requestedResults:hitLimit,organicResults:hits.length}
+  const hits=search.rows.filter(row=>{
+    const url=publicUrl(row?.url)
+    // The search Actor can insert its own upgrade offer as a result row.
+    return url && !(url.hostname==='apify.com' && /^\/pricing\/?$/.test(url.pathname))
+  })
+  const stage={stage:'German web search',actor:SEARCH_ACTOR,status:search.status,ceilingUsd:0.01,reportedUsd:search.reportedUsd,requestedResults:hitLimit,rawResultRows:search.rows.length,organicResults:hits.length}
   report.stages=[stage]
   report.providerUsage={ceilingUsd:0.05,reportedUsd:search.reportedUsd,provider:'Apify',starts:1,requestedPages:pageLimit}
   const originals=new Map()

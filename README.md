@@ -56,6 +56,8 @@ The sample preserves unsuccessful searches and partial results alongside retaine
 
 The shift search is marked partial because one selected page did not return. All four runs confirmed **zero buying signals**. Their retained records support further research. Page count, company count and confirmed evidence are separate measures, and earlier runs may have less stage detail.
 
+New localized search runs also record **raw provider rows**. The search-result count excludes the provider’s own upgrade link; the selected-URL count shows how many distinct eligible pages went to the crawler.
+
 Source filters check that the evidence belongs to the operating company. Search snippets, unverified job boards, supplier product marketing, customer stories and manufacturing brokers are screened before company intake. Exact quotations and source links support review of accepted claims. The saved examples demonstrate the workflow and its limits, rather than a measured discovery success rate for the wider market.
 
 ## Run the public demo locally

@@ -32,6 +32,7 @@
     "Original source links open external websites.": "Links zu Originalquellen öffnen externe Websites.",
     "Saved decisions show the outcome of that search. Account profiles show the later assessment date above.": "Gespeicherte Entscheidungen zeigen das Ergebnis der damaligen Suche. Firmenprofile zeigen den oben genannten späteren Bewertungsstand.",
     "Search results returned": "Zurückgegebene Suchergebnisse",
+    "Raw provider rows": "Ungefilterte Anbieterzeilen",
     "Original URLs selected": "Ausgewählte Original-URLs",
     "Original pages returned": "Zurückgegebene Originalseiten",
     "Missing original pages": "Fehlende Originalseiten",
@@ -752,7 +753,7 @@
     const decisions = list(run.decisions);
     const retained = new Set(decisions.filter(page => page.outcome === 'kept').map(page => page.accountId || page.domain).filter(Boolean)).size;
     const countLabels = [
-      ['organicResults','Search results returned'],['originalUrlsSelected','Original URLs selected'],
+      ['rawResultRows','Raw provider rows'],['organicResults','Search results returned'],['originalUrlsSelected','Original URLs selected'],
       ['returnedPages','Original pages returned'],['missingPages','Missing original pages']
     ];
     const stageBlocks = stages.map(stage => {
