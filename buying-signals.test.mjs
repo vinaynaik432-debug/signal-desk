@@ -26,6 +26,15 @@ const examples={
 const signal=(quote,extra={})=>({...base,quote,sourceText:quote,title:'Betriebsmitteilung',...extra});
 const find=(s,id,date=AS_OF)=>assessBuyingSignals(base,s,date).find(r=>r.id===id);
 
+test('a denied machine investment is not evidence of a purchase',()=>{
+  for (const q of ['We have not purchased a new CNC machining center.',
+    'We have never purchased a new CNC machine.', 'We haven’t ordered a new CNC lathe.',
+    'Wir haben keine neue CNC-Drehmaschine bestellt.', 'Wir haben die neue CNC-Drehmaschine nicht gekauft.']) {
+    assert.equal(find(signal(q),'cnc_addition').status,'unknown',q);
+  }
+  assert.equal(find(signal('We have purchased a new CNC machining center.'),'cnc_addition').status,'confirmed');
+});
+
 test('all 12 precisely defined signals have positive examples in the original German',()=>{
   assert.equal(new Set(BUYING_SIGNALS.map(d=>d.id)).size,12);
   for (const def of BUYING_SIGNALS){

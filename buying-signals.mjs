@@ -21,6 +21,9 @@ const handling = /maschinen(?:be(?:lad|schick|stück)|zuführ)|werkstück(?:hand
 const cnc = /cnc|drehmaschine|fräsmaschine|dreh-fräszentr|bearbeitungs(?:zentrum|maschine)|fräszentrum|drehzentrum|machining cent(?:er|re)|milling machine|\blathe\b|machining cell|zerspanung/;
 const automation = /automat|robot|unattended|mannlos|unbemannt/;
 const newAsset = /(?:hinzu|ergänz|erweiter|erhielt|investier|gekauft|angeschafft|beschafft|bestellt|ausgebaut|in betrieb genommen|installier|purchased|ordered|adding|added|expanded|commissioned|installed|invested)/;
+// Ambiguous mixed assertions stay unconfirmed. Never score an investment just
+// because the purchase verb also appears in a denial.
+const assetDenial = /\b(?:not|never|no|without|nicht|nie|niemals|ohne|kein(?:e[nrms]?|en|em|er|es)?)\b|n['’]t\b/;
 const namedLine = /(?:linie|zelle|cell|line|machine|maschine)\s+(?:nr\.?\s*)?(?:\d+[\w-]*|[a-z][-_]\d+|[a-z]\d+|[a-z]{2,}[- ]?\d+)|(?:verpackungs|fertigungs|montage|dreh|fräs|cnc)[- ]?(?:linie|zelle)\s+(?:\d+|[a-z]\b)|\b[A-Z]{1,5}[- ]?\d{2,4}\b/i;
 const tests = {
   loading_rfq: q => handling.test(q) && /ausschreibung|angebots(?:anfrage|frist|abgabe)|bitt(?:en|et) um (?:angebote|ein angebot)|aufforderung zur angebotsabgabe|\brfq\b|tender|invites? bids|request(?:ing)? (?:for |a )?quotation|submit (?:a |your )?(?:bid|quotation)|beschaff(?:en|t) (?:wir |eine?n? )?/.test(q),
@@ -38,6 +41,7 @@ const tests = {
 };
 export function matchBuyingSignal(id, statement) {
   const q = norm(statement);
+  if (id === 'cnc_addition' && assetDenial.test(q)) return false;
   return !!tests[id] && q.length >= 12 && q.length <= 850 && tests[id](q);
 }
 

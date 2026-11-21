@@ -35,6 +35,8 @@ The 0–100 score ranks research priority for a cited process. It is a rule-base
 
 The catalog contains twelve defined buying signals, including an open machine-loading RFQ, an invitation to a feasibility study, loader replacement, an unattended-production goal, a documented loading bottleneck, an approved automation budget, pilot rollout, a new series contract, insourcing, a CNC addition, an ergonomics project and a role owning loading automation. Each has its own evidence requirements and weight.
 
+For a CNC addition, a purchase verb alone does not confirm the signal. For example, “we have not purchased a new CNC machining center” and “wir haben keine neue CNC-Drehmaschine bestellt” earn no points. Ambiguous statements containing a denial stay unconfirmed.
+
 Evidence for a separate machine or site remains visible on the company account. The score credits the selected process. A review hold, missing eligibility evidence, unavailable source or documented automation coverage can reduce its final priority to zero and pause drafting. An explicit, current replacement or retrofit requirement can establish a new opportunity for an already automated process.
 
 Dated buying events expire after 365 days, while RFQs require a verifiable open submission deadline. Explicit capability pages use their observation date to assess current operating context and retain their original publication date. News announcements and vacancies keep their event-date rules. Future dates and unavailable pages remain ineligible. An extracted locality can be shown while its country remains unresolved.
